@@ -1,26 +1,34 @@
 module.exports = {
+  parser: '@typescript-eslint/parser',
   env: {
     browser: true,
     es2021: true,
   },
   extends: [
+    'airbnb-typescript',
     'plugin:react/recommended',
-    'plugin:import/recommended',
-    'plugin:import/typescript',
-    'airbnb-base',
+    'plugin:@typescript-eslint/recommended',
   ],
+  parserOptions: {
+    project: './tsconfig.json',
+  },
   settings: {
     react: {
       version: 'detect',
     },
-  },
-  parserOptions: {
-    ecmaVersion: 12,
-    sourceType: 'module',
   },
   rules: {
     'no-console': 'off',
     'react/react-in-jsx-scope': 'off',
   },
   ignorePatterns: ['dist', 'node_modules'],
+  overrides: [
+    {
+      files: ['*.js', '*.jsx'],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+  ],
 };
