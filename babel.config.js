@@ -6,5 +6,9 @@ module.exports = {
       version: '3.15',
       proposal: true,
     },
-  }]],
+  }], [
+    '@babel/preset-react', {
+      runtime: 'automatic',
+    },
+  ]],
 };
